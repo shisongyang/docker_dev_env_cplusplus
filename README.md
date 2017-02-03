@@ -1,2 +1,2 @@
 # docker_dev_env_cplusplus
-此工程将有几个dockerfile组成。目的是为了完成一个中文的C++云开发环境。
+此工程将有几个dockerfile组成。目的是想通过Docker来完成一整套的中文的C++云开发环境。
