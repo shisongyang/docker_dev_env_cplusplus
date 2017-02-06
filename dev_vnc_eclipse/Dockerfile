@@ -1,6 +1,6 @@
 # this docker file is used to build a base dev env for chinese
 
-FROM frankshi/docker_dev_env_cplusplus
+FROM frankshi/base_env_chinese
 MAINTAINER frank "songyangshi@gmail.com"
 
 
