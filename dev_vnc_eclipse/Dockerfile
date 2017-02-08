@@ -9,9 +9,9 @@ ENV DISPLAY :1
 ENV NO_VNC_HOME /root/noVNC
 ENV VNC_COL_DEPTH 24
 ENV VNC_RESOLUTION 1280x1024
-ENV VNC_PW ssy123
+ENV VNC_PW ssy123456
 ENV SAKULI_DOWNLOAD_URL https://labs.consol.de/sakuli/install
-ENV DEV_DIR /root/eclipse
+ENV DIR_DEV /root/eclipse
 ENV URL_ECLIPSE http://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/neon/2/eclipse-cpp-neon-2-linux-gtk-x86_64.tar.gz
 ENV URL_NO_VNC https://raw.githubusercontent.com/shisongyang/novnc_res/master/noVNC-0.6.1.tar.gz
 ENV URL_WEB_SOKIFY https://raw.githubusercontent.com/shisongyang/novnc_res/master/websockify-0.8.0.tar.gz
@@ -37,7 +37,7 @@ ADD .vnc /root/.vnc
 ADD .config /root/.config
 ADD scripts /root/scripts
 
-RUN chmod +x  /root/scripts/*.sh /root/.vnc/xstartup /etc/xdg/xfce4/xinitrc /root/Desktop/*.desktop
+RUN chmod +x  /root/scripts/*.sh /root/.vnc/xstartup /etc/xdg/xfce4/xinitrc
 RUN /bin/dbus-uuidgen > /etc/machine-id
 
 # Disable xfce-polkit
@@ -47,9 +47,8 @@ RUN rm /etc/xdg/autostart/xfce-polkit.desktop
 ADD eclipse-cpp-neon-2-linux-gtk-x86_64.tar.gz $DEV_DIR
 # --java and java plugin
 RUN yum -y install $SAKULI_DOWNLOAD_URL/3rd-party/java/jre-$JAVA_VERSION-linux-x64.rpm && yum clean all
-RUN wget -qO- $ECLIPSE_URL | tar xz --strip 1 -C $DEV_DIR \
-	&& ln -s /root/Desktop/elipse $DEV_DIR/eclipse/eclipse
-
+RUN mkdir $DIR_DEV \
+ 	&& wget -qO- $ECLIPSE_URL | tar xz --strip 1 -C $DIR_DEV
 
 
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
