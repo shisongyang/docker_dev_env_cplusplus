@@ -47,7 +47,7 @@ RUN rm /etc/xdg/autostart/xfce-polkit.desktop
 
 # --java and java plugin
 RUN yum -y install $SAKULI_DOWNLOAD_URL/3rd-party/java/jre-$JAVA_VERSION-linux-x64.rpm && yum clean all
-RUN mkdir $DIR_DEV \
+RUN mkdir -p $DIR_DEV \
  	&& wget -qO- $ECLIPSE_URL | tar xz --strip 1 -C $DIR_DEV
 
 
