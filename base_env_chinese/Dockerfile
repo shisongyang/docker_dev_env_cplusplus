@@ -11,7 +11,7 @@ RUN yum -y install epel-release \
 
 # developer
 RUN	yum -y groups install "Development Tools" \ 
-	&& yum -y install cmake htop gtest vim \ 
+	&& yum -y install cmake htop gtest vim wget which net-tools\ 
 	&& yum clean all -y
 	
 
