@@ -44,7 +44,7 @@ RUN /bin/dbus-uuidgen > /etc/machine-id
 RUN rm /etc/xdg/autostart/xfce-polkit.desktop
 
 # eclipse
-ADD eclipse-cpp-neon-2-linux-gtk-x86_64.tar.gz $DEV_DIR
+
 # --java and java plugin
 RUN yum -y install $SAKULI_DOWNLOAD_URL/3rd-party/java/jre-$JAVA_VERSION-linux-x64.rpm && yum clean all
 RUN mkdir $DIR_DEV \
