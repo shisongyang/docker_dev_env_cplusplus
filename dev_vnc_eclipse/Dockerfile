@@ -26,7 +26,8 @@ RUN mkdir -p $NO_VNC_HOME/utils/websockify \
     && wget -qO- $URL_WEB_SOKIFY | tar xz --strip 1 -C $NO_VNC_HOME/utils/websockify \
     && chmod +x -v /root/noVNC/utils/*.sh
 
-
+# java
+RUN yum -y install $SAKULI_DOWNLOAD_URL/3rd-party/java/jre-$JAVA_VERSION-linux-x64.rpm && yum clean all
 
 # xvnc server porst, if $DISPLAY=:1 port will be 5901
 EXPOSE 5901
@@ -36,17 +37,12 @@ EXPOSE 6901
 ADD .vnc /root/.vnc
 ADD .config /root/.config
 ADD scripts /root/scripts
-
 RUN chmod +x  /root/scripts/*.sh /root/.vnc/xstartup /etc/xdg/xfce4/xinitrc
 RUN /bin/dbus-uuidgen > /etc/machine-id
-
 # Disable xfce-polkit
 RUN rm /etc/xdg/autostart/xfce-polkit.desktop
 
 # eclipse
-
-# --java and java plugin
-RUN yum -y install $SAKULI_DOWNLOAD_URL/3rd-party/java/jre-$JAVA_VERSION-linux-x64.rpm && yum clean all
 RUN mkdir -p $DIR_DEV \
  	&& wget -qO- $URL_ECLIPSE | tar xz --strip 1 -C $DIR_DEV
 

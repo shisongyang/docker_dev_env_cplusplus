@@ -7,6 +7,10 @@ NO_VNC_PORT="690"${DISPLAY:1}
 
 # change vnc password
 echo "change vnc password!"
+echo $VNC_PW
+echo $VNC_IP
+echo $VNC_PORT
+echo $NO_VNC_PORT
 (echo $VNC_PW && echo $VNC_PW) | vncpasswd
 
 # start vncserver and noVNC webclient
@@ -16,7 +20,7 @@ vncserver $DISPLAY -depth $VNC_COL_DEPTH -geometry $VNC_RESOLUTION
 startxfce4 &
 sleep 1
 # copy remote
-vncconfig -nowin&
+#vncconfig -nowin&
 
 # log connect options
 echo -e "\n------------------ VNC environment started ------------------"
