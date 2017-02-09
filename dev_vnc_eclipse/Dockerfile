@@ -50,6 +50,3 @@ RUN mkdir -p $DIR_DEV \
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
 CMD ["--tail-log"]
 
-# default cmd
-CMD ["/bin/bash"]
-
