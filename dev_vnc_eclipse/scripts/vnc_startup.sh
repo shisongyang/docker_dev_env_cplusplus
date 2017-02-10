@@ -20,7 +20,7 @@ vncserver $DISPLAY -depth $VNC_COL_DEPTH -geometry $VNC_RESOLUTION
 startxfce4 &
 sleep 1
 # copy remote
-#vncconfig -nowin&
+vncconfig -nowin&
 
 # log connect options
 echo -e "\n------------------ VNC environment started ------------------"

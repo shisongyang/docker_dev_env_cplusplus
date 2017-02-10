@@ -18,7 +18,7 @@ ENV URL_WEB_SOKIFY https://raw.githubusercontent.com/shisongyang/novnc_res/maste
 
 # vnc xfce
 RUN yum --enablerepo=epel -y -x gnome-keyring --skip-broken groups install "Xfce" && yum clean all -y
-RUN yum -y install tigervnc-server && yum clean all -y
+RUN yum -y install tigervnc-server && yum -y install gedit && yum clean all -y
 
 # novnc
 RUN mkdir -p $NO_VNC_HOME/utils/websockify \
