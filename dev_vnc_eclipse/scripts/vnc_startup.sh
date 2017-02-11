@@ -22,6 +22,8 @@ sleep 1
 # copy remote
 vncconfig -nowin&
 
+ibus-daemon&
+
 # log connect options
 echo -e "\n------------------ VNC environment started ------------------"
 echo -e "\nVNCSERVER started on DISPLAY= $DISPLAY \n\t=> connect via VNC viewer with $VNC_IP:$VNC_PORT"
