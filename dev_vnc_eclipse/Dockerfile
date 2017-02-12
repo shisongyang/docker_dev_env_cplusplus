@@ -44,8 +44,7 @@ RUN rm /etc/xdg/autostart/xfce-polkit.desktop
 
 # eclipse
 RUN mkdir -p $DIR_DEV \
- 	&& wget -qO- $URL_ECLIPSE | tar xz --strip 1 -C $DIR_DEV \
- 	&& ln -s /root/eclipse/eclipse /root/Desktop/eclipse
+ 	&& wget -qO- $URL_ECLIPSE | tar xz --strip 1 -C $DIR_DEV
  	
 # chinese input 
 RUN  yum -y install ibus ibus-libpinyin ibus-qt ibus-table-chinese-array && yum clean all -y

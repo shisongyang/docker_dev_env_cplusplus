@@ -23,6 +23,7 @@ sleep 1
 vncconfig -nowin&
 
 ibus-daemon&
+ln -s /root/eclipse/eclipse /root/Desktop/eclipse
 
 # log connect options
 echo -e "\n------------------ VNC environment started ------------------"
