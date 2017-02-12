@@ -12,7 +12,7 @@ ENV VNC_RESOLUTION 1280x1024
 ENV VNC_PW ssy123456
 ENV SAKULI_DOWNLOAD_URL https://labs.consol.de/sakuli/install
 ENV DIR_DEV /root/eclipse
-ENV URL_ECLIPSE http://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/neon/2/eclipse-cpp-neon-2-linux-gtk-x86_64.tar.gz
+ENV URL_ECLIPSE http://mirror.rise.ph/eclipse/technology/epp/downloads/release/neon/2/eclipse-cpp-neon-2-linux-gtk-x86_64.tar.gz
 ENV URL_NO_VNC https://raw.githubusercontent.com/shisongyang/novnc_res/master/noVNC-0.6.1.tar.gz
 ENV URL_WEB_SOKIFY https://raw.githubusercontent.com/shisongyang/novnc_res/master/websockify-0.8.0.tar.gz
 
