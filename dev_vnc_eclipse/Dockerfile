@@ -44,7 +44,7 @@ RUN rm /etc/xdg/autostart/xfce-polkit.desktop
 
 # eclipse
 RUN mkdir -p $DIR_DEV \
- 	&& wget -qO- $URL_ECLIPSE | tar xz --strip 1 -C $DIR_DEV 
+ 	&& wget -qO- $URL_ECLIPSE | tar xz --strip 1 -C $DIR_DEV \
  	&& ln -s /root/eclipse/eclipse /root/Desktop/eclipse
  	
 # chinese input 
