@@ -56,7 +56,7 @@ RUN yum -y install firefox && yum clean all -y
 
 # cpp reference
 RUN mkdir -p $DIR_CPP_REF \
-	&& wget -q0- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF
+	&& wget -qO- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF
 
 
 
