@@ -25,6 +25,7 @@ vncconfig -nowin&
 ibus-daemon&
 mkdir -p /root/Desktop
 ln -s /root/eclipse/eclipse /root/Desktop/eclipse
+ln -s /usr/bin/firefox /root/Desktop/firefox
 
 # log connect options
 echo -e "\n------------------ VNC environment started ------------------"

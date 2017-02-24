@@ -15,6 +15,8 @@ ENV DIR_DEV /root/eclipse
 ENV URL_ECLIPSE http://mirror.rise.ph/eclipse/technology/epp/downloads/release/neon/2/eclipse-cpp-neon-2-linux-gtk-x86_64.tar.gz
 ENV URL_NO_VNC https://raw.githubusercontent.com/shisongyang/novnc_res/master/noVNC-0.6.1.tar.gz
 ENV URL_WEB_SOKIFY https://raw.githubusercontent.com/shisongyang/novnc_res/master/websockify-0.8.0.tar.gz
+ENV URL_CPP_REF http://upload.cppreference.com/mwiki/images/f/f2/html_book_20170214.tar.gz
+ENV DIR_CPP_REF /root/cpp_ref
 
 # vnc xfce
 RUN yum --enablerepo=epel -y -x gnome-keyring --skip-broken groups install "Xfce" && yum clean all -y
@@ -48,6 +50,13 @@ RUN mkdir -p $DIR_DEV \
  	
 # chinese input 
 RUN  yum -y install ibus ibus-libpinyin ibus-qt ibus-table-chinese-array im-chooser && yum clean all -y
+
+# browser
+RUN yum -y install firefox && yum clean all -y
+
+# cpp reference
+RUN mkdir -p $DIR_CPP_REF \
+	&& wget -q0- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF
 
 
 
