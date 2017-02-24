@@ -51,12 +51,14 @@ RUN mkdir -p $DIR_DEV \
 # chinese input 
 RUN  yum -y install ibus ibus-libpinyin ibus-qt ibus-table-chinese-array im-chooser && yum clean all -y
 
-# browser
-RUN yum -y install firefox && yum clean all -y
-
 # cpp reference
 RUN mkdir -p $DIR_CPP_REF \
 	&& wget -qO- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF
+	
+# browser
+RUN yum -y install firefox && yum clean all -y
+
+
 
 
 
