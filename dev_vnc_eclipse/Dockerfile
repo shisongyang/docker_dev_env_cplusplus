@@ -52,11 +52,11 @@ RUN mkdir -p $DIR_DEV \
 RUN  yum -y install ibus ibus-libpinyin ibus-qt ibus-table-chinese-array im-chooser && yum clean all -y
 
 # cpp reference
-RUN mkdir -p $DIR_CPP_REF \
-	&& wget -qO- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF
+#RUN mkdir -p $DIR_CPP_REF \
+#	&& wget -qO- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF
 	
 # browser and pdf reader
-RUN yum -y install firefox && yum -y install evince && yum clean all -y
+#RUN yum -y install firefox && yum -y install evince && yum clean all -y
 
 
 
