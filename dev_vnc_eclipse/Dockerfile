@@ -51,16 +51,11 @@ RUN mkdir -p $DIR_DEV \
 # chinese input 
 RUN  yum -y install ibus ibus-libpinyin ibus-qt ibus-table-chinese-array im-chooser && yum clean all -y
 
-# cpp reference
-#RUN mkdir -p $DIR_CPP_REF \
-#	&& wget -qO- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF
+# cpp reference browser and pdf reader
+RUN mkdir -p $DIR_CPP_REF \
+	&& wget -qO- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF \
+	&& yum -y install firefox && yum -y install evince && yum clean all -y
 	
-# browser and pdf reader
-#RUN yum -y install firefox && yum -y install evince && yum clean all -y
-
-
-
-
 
 
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
