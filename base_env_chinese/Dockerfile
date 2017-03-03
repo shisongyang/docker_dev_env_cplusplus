@@ -13,6 +13,7 @@ RUN yum -y install epel-release \
 RUN	yum -y groups install "Development Tools" \ 
 	&& yum -y install cmake htop gtest vim wget which net-tools valgrind perf lsof collectl \ 
 	&& yum -y install --setopt=tsflags='' man man-pages \
+	&& debuginfo-install -y glibc \
 	&& yum clean all -y
 	
 
