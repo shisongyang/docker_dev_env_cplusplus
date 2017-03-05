@@ -28,9 +28,6 @@ ln -s /root/eclipse/eclipse /root/Desktop/eclipse
 ln -s /usr/bin/firefox /root/Desktop/firefox
 ln -s /usr/bin/evince /root/Desktop/evince
 
-#setup  ibus
-cp -f /root/download/utmp /run/
-
 # log connect options
 echo -e "\n------------------ VNC environment started ------------------"
 echo -e "\nVNCSERVER started on DISPLAY= $DISPLAY \n\t=> connect via VNC viewer with $VNC_IP:$VNC_PORT"

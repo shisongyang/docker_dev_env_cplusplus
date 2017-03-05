@@ -16,8 +16,7 @@ ENV URL_ECLIPSE http://mirror.rise.ph/eclipse/technology/epp/downloads/release/n
 ENV URL_NO_VNC https://raw.githubusercontent.com/shisongyang/novnc_res/master/noVNC-0.6.1.tar.gz
 ENV URL_WEB_SOKIFY https://raw.githubusercontent.com/shisongyang/novnc_res/master/websockify-0.8.0.tar.gz
 ENV URL_CPP_REF http://upload.cppreference.com/mwiki/images/f/f2/html_book_20170214.tar.gz
-ENV URL_SETUP_IBUS https://raw.githubusercontent.com/shisongyang/novnc_res/master/docker_res/ibus-setup/utmp
-ENV DIR_DOWNLOAD /root/download
+ENV DIR_IBUS /root/.config/dconf
 ENV DIR_CPP_REF /root/cpp_ref
 
 # vnc xfce
@@ -57,8 +56,9 @@ RUN  yum -y install ibus ibus-libpinyin ibus-qt ibus-table-chinese-array im-choo
 # cpp reference browser and pdf reader ibus setup
 RUN mkdir -p $DIR_CPP_REF \
 	&& wget -qO- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF \
-	&& wget -P $DIR_DOWNLOAD $URL_SETUP_IBUS \
+	&& mkdir -p $DIR_IBUS \
 	&& yum -y install firefox && yum -y install evince && yum clean all -y
+COPY user $DIR_IBUS
 	
 
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
