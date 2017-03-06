@@ -59,6 +59,7 @@ RUN mkdir -p $DIR_CPP_REF \
 	&& mkdir -p $DIR_IBUS \
 	&& yum -y install firefox && yum -y install evince && yum clean all -y
 COPY user $DIR_IBUS
+ADD mozilla.tar.gz /root/
 	
 
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
