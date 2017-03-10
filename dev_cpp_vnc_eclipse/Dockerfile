@@ -19,6 +19,7 @@ ENV URL_CPP_REF http://upload.cppreference.com/mwiki/images/f/f2/html_book_20170
 ENV DIR_IBUS /root/.config/dconf
 ENV DIR_CPP_REF /root/cpp_ref
 
+
 # vnc xfce
 RUN yum --enablerepo=epel -y -x gnome-keyring --skip-broken groups install "Xfce" \
 	&& yum -y install tigervnc-server && yum -y install gedit && yum clean all -y
@@ -41,6 +42,7 @@ ADD .vnc /root/.vnc
 ADD .config /root/.config
 ADD scripts /root/scripts
 
+
 # config Disable xfce-polkit
 RUN chmod +x  /root/scripts/*.sh /root/.vnc/xstartup /etc/xdg/xfce4/xinitrc \
 	&& /bin/dbus-uuidgen > /etc/machine-id \
@@ -53,13 +55,15 @@ RUN mkdir -p $DIR_DEV \
 # chinese input 
 RUN  yum -y install ibus ibus-libpinyin ibus-qt ibus-table-chinese-array im-chooser && yum clean all -y
 
-# cpp reference browser and pdf reader ibus setup
+# cpp reference browser and pdf reader ibus setup 
 RUN mkdir -p $DIR_CPP_REF \
 	&& wget -qO- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF \
 	&& mkdir -p $DIR_IBUS \
-	&& yum -y install firefox && yum -y install evince && yum clean all -y
-COPY user $DIR_IBUS
-ADD mozilla.tar.gz /root/
+	&& yum -y install firefox evince goldendict  && yum clean all -y
+ADD def_res /root/def_res
+COPY def_setup/ibus/user $DIR_IBUS
+ADD def_setup/mozilla.tar.gz /root/
+ADD def_setup/goldendict.tar.gz /root/
 	
 
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
