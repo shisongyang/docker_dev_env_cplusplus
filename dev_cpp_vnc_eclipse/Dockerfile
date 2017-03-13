@@ -48,9 +48,6 @@ RUN chmod +x  /root/scripts/*.sh /root/.vnc/xstartup /etc/xdg/xfce4/xinitrc \
 	&& /bin/dbus-uuidgen > /etc/machine-id \
 	&& rm /etc/xdg/autostart/xfce-polkit.desktop
 
-# eclipse
-RUN mkdir -p $DIR_DEV \
- 	&& wget -qO- $URL_ECLIPSE | tar xz --strip 1 -C $DIR_DEV
  	
 # chinese input 
 RUN  yum -y install ibus ibus-libpinyin ibus-qt ibus-table-chinese-array im-chooser && yum clean all -y
@@ -59,11 +56,20 @@ RUN  yum -y install ibus ibus-libpinyin ibus-qt ibus-table-chinese-array im-choo
 RUN mkdir -p $DIR_CPP_REF \
 	&& wget -qO- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF \
 	&& mkdir -p $DIR_IBUS \
-	&& yum -y install firefox evince goldendict  && yum clean all -y
+	&& yum -y install firefox evince goldendict cppcheck  && yum clean all -y
 ADD def_res /root/def_res
 COPY def_setup/ibus/user $DIR_IBUS
 ADD def_setup/mozilla.tar.gz /root/
 ADD def_setup/goldendict.tar.gz /root/
+ADD def_setup/eclipse_config.tar.gz /root/
+COPY def_setup/eclipse_workspace.tar.gz /root/
+
+# eclipse
+#RUN mkdir -p $DIR_DEV \
+# 	&& wget -qO- $URL_ECLIPSE | tar xz --strip 1 -C $DIR_DEV
+RUN cat /root/def_res/eclipse/* > /root/eclipse.tar.gz && rm -rf /root/def_res/eclipse/ \
+	&& tar -zxf /root/eclipse.tar.gz && rm -f /root/eclipse.tar.gz
+
 	
 
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]

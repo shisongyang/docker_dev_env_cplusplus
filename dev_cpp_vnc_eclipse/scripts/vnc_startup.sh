@@ -28,6 +28,8 @@ ln -s /root/eclipse/eclipse /root/Desktop/eclipse
 ln -s /usr/bin/firefox /root/Desktop/firefox
 ln -s /usr/bin/evince /root/Desktop/evince
 ln -s /usr/bin/goldendict /root/Desktop/goldendict
+mkdir -P /root/work_dir/
+mv /root/eclipse_workspace.tar.gz /root/work_dir/ && tar -zxf /root/work_dir/eclipse_workspace.tar.gz && rm -f /root/work_dir/eclipse_workspace.tar.gz
 
 # log connect options
 echo -e "\n------------------ VNC environment started ------------------"
