@@ -68,7 +68,7 @@ COPY def_setup/eclipse_workspace.tar.gz /root/
 #RUN mkdir -p $DIR_DEV \
 # 	&& wget -qO- $URL_ECLIPSE | tar xz --strip 1 -C $DIR_DEV
 RUN cat /root/def_res/eclipse/* > /root/eclipse.tar.gz && rm -rf /root/def_res/eclipse/ \
-	&& tar -zxf /root/eclipse.tar.gz && rm -f /root/eclipse.tar.gz
+	&& tar -zxf /root/eclipse.tar.gz -C /root/ && rm -f /root/eclipse.tar.gz
 
 	
 
