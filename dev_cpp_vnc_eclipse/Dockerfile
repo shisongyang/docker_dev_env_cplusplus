@@ -56,10 +56,11 @@ RUN  yum -y install ibus ibus-libpinyin ibus-qt ibus-table-chinese-array im-choo
 RUN mkdir -p $DIR_CPP_REF \
 	&& wget -qO- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF \
 	&& mkdir -p $DIR_IBUS \
-	&& yum -y install firefox evince goldendict cppcheck  && yum clean all -y
+	&& yum -y install firefox evince goldendict cppcheck && yum clean all -y
+	
 ADD def_res /root/def_res
 COPY def_setup/ibus/user $DIR_IBUS
-ADD def_setup/mozilla.tar.gz /root/
+#ADD def_setup/mozilla.tar.gz /root/
 ADD def_setup/goldendict.tar.gz /root/
 ADD def_setup/eclipse_config.tar.gz /root/
 COPY def_setup/eclipse_workspace.tar.gz /root/
