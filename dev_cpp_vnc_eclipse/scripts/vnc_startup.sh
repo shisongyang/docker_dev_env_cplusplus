@@ -25,7 +25,7 @@ vncconfig -nowin&
 ibus-daemon&
 mkdir -p /root/Desktop
 ln -s /root/eclipse/eclipse /root/Desktop/eclipse
-ln -s /usr/bin/firefox /root/Desktop/firefox
+ln -s /usr/bin/google-chrome /root/Desktop/google_chrome
 ln -s /usr/bin/evince /root/Desktop/evince
 ln -s /usr/bin/goldendict /root/Desktop/goldendict
 mkdir -P /root/work_dir/

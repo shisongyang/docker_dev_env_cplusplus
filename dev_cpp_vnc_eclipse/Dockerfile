@@ -18,6 +18,7 @@ ENV URL_WEB_SOKIFY https://raw.githubusercontent.com/shisongyang/novnc_res/maste
 ENV URL_CPP_REF http://upload.cppreference.com/mwiki/images/f/f2/html_book_20170214.tar.gz
 ENV DIR_IBUS /root/.config/dconf
 ENV DIR_CPP_REF /root/cpp_ref
+ENV URL_GOOGLE_CHROME https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 
 
 # vnc xfce
@@ -56,14 +57,20 @@ RUN  yum -y install ibus ibus-libpinyin ibus-qt ibus-table-chinese-array im-choo
 RUN mkdir -p $DIR_CPP_REF \
 	&& wget -qO- $URL_CPP_REF | tar xz --strip 1 -C $DIR_CPP_REF \
 	&& mkdir -p $DIR_IBUS \
-	&& yum -y install firefox evince goldendict cppcheck && yum clean all -y
+	&& yum -y install evince goldendict cppcheck \
+	&& wget $URL_GOOGLE_CHROME \
+	&& yum -y install google-chrome-stable_current_x86_64.rpm \
+	&& yum clean all -y
+	
 	
 ADD def_res /root/def_res
 COPY def_setup/ibus/user $DIR_IBUS
-#ADD def_setup/mozilla.tar.gz /root/
 ADD def_setup/goldendict.tar.gz /root/
 ADD def_setup/eclipse_config.tar.gz /root/
 COPY def_setup/eclipse_workspace.tar.gz /root/
+ADD def_setup/google_chrome_setup.tar.gz /root/.config/
+COPY def_setup/google_chrome /usr/bin/
+
 
 # eclipse
 #RUN mkdir -p $DIR_DEV \
