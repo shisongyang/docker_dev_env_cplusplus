@@ -69,7 +69,7 @@ ADD def_setup/goldendict.tar.gz /root/
 ADD def_setup/eclipse_config.tar.gz /root/
 COPY def_setup/eclipse_workspace.tar.gz /root/
 ADD def_setup/google_chrome_setup.tar.gz /root/.config/
-COPY def_setup/google_chrome /usr/bin/
+COPY def_setup/google-chrome /usr/bin/
 
 
 # eclipse
