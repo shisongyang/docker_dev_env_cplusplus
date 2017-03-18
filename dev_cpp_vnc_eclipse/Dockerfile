@@ -60,6 +60,7 @@ RUN mkdir -p $DIR_CPP_REF \
 	&& yum -y install evince goldendict cppcheck \
 	&& wget $URL_GOOGLE_CHROME \
 	&& yum -y install google-chrome-stable_current_x86_64.rpm \
+	&& rm -rf /etc/yum.repos.d/google-chrome.repo \
 	&& yum clean all -y
 	
 	
