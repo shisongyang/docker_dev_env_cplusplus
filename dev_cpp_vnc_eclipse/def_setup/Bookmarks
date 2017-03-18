@@ -1,0 +1,39 @@
+{
+   "checksum": "d2dc66947f04bd10a9a67e8189ffea50",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13134323480075467",
+            "id": "6",
+            "meta_info": {
+               "last_visited_desktop": "13134323480172854"
+            },
+            "name": "cppreference.com",
+            "type": "url",
+            "url": "file:///root/cpp_ref/en/Main_Page.html"
+         } ],
+         "date_added": "13134323421558935",
+         "date_modified": "13134323480075467",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13134323421558952",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13134323421558954",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

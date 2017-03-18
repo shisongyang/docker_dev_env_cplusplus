@@ -66,10 +66,10 @@ RUN mkdir -p $DIR_CPP_REF \
 ADD def_res /root/def_res
 COPY def_setup/ibus/user $DIR_IBUS
 ADD def_setup/goldendict.tar.gz /root/
-#ADD def_setup/eclipse_config.tar.gz /root/
-#COPY def_setup/eclipse_workspace.tar.gz /root/
-#ADD def_setup/google_chrome_setup.tar.gz /root/.config/
-#COPY def_setup/google-chrome /usr/bin/
+ADD def_setup/eclipse_config.tar.gz /root/
+COPY def_setup/eclipse_workspace.tar.gz /root/
+COPY def_setup/Bookmarks /root/.config/google-chrome/Default/
+COPY def_setup/google-chrome /usr/bin/
 
 
 # eclipse
