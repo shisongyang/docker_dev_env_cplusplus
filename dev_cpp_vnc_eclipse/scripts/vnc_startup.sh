@@ -28,6 +28,7 @@ ln -s /root/eclipse/eclipse /root/Desktop/eclipse
 ln -s /usr/bin/google-chrome /root/Desktop/google_chrome
 ln -s /usr/bin/evince /root/Desktop/evince
 ln -s /usr/bin/goldendict /root/Desktop/goldendict
+ln -s /usr/bin/filezilla /root/Desktop/filezilla
 mkdir -P /root/work_dir/
 if [ ! -d "/root/work_dir/eclipse_workspace/" ] ; then
        tar -zxf /root/eclipse_workspace.tar.gz -C /root/work_dir/ && rm -f /root/eclipse_workspace.tar.gz
