@@ -79,6 +79,18 @@ COPY def_setup/ansible.cfg /etc/ansible/
 RUN cat /root/def_res/eclipse/* > /root/eclipse.tar.gz && rm -rf /root/def_res/eclipse/ \
 	&& tar -zxf /root/eclipse.tar.gz -C /root/ && rm -f /root/eclipse.tar.gz
 
+ENV GRPC_RELEASE_TAG v1.4.0
+
+RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc
+
+# install grpc
+RUN cd /var/local/git/grpc && \
+    git submodule update --init && \
+    make && \
+    make install && make clean
+#install protoc
+RUN cd /var/local/git/grpc/third_party/protobuf && \
+    make && make install && make clean
 	
 
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
