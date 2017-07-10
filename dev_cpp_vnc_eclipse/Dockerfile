@@ -72,6 +72,7 @@ COPY def_setup/eclipse_workspace.tar.gz /root/
 COPY def_setup/Bookmarks /root/.config/google-chrome/Default/
 COPY def_setup/google-chrome /usr/bin/
 COPY def_setup/ansible.cfg /etc/ansible/
+COPY def_setup/.bashrc /root/
 
 # eclipse
 #RUN mkdir -p $DIR_DEV \
