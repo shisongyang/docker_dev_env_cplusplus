@@ -68,11 +68,13 @@ ADD def_res /root/def_res
 COPY def_setup/ibus/user $DIR_IBUS
 ADD def_setup/goldendict.tar.gz /root/
 ADD def_setup/eclipse_config.tar.gz /root/
+ADD def_setup/sublime.tar.gz /root/
 COPY def_setup/eclipse_workspace.tar.gz /root/
 COPY def_setup/Bookmarks /root/.config/google-chrome/Default/
 COPY def_setup/google-chrome /usr/bin/
 COPY def_setup/ansible.cfg /etc/ansible/
 COPY def_setup/.bashrc /root/
+
 
 # eclipse
 #RUN mkdir -p $DIR_DEV \
@@ -92,6 +94,9 @@ RUN cd /var/local/git/grpc && \
 #install protoc
 RUN cd /var/local/git/grpc/third_party/protobuf && \
     make && make install && make clean
+    
+# install atom
+
 	
 
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
