@@ -5,3 +5,11 @@
 然后就可以用vnc 客户端 连接 地址为 IP:5901 初始密码为 ssy123456
 网页也可以访问方式如下： http://IP:6901/vnc_auto.html
   
+
+## Tests
+
+To verify shell script syntax run:
+
+```bash
+bash tests/test_scripts.sh
+```
